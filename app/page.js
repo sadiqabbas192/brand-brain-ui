@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex flex-col h-screen bg-background text-foreground overflow-hidden">
       {/* Header */}
-      <header className="h-16 flex-none border-b border-border/40 bg-background/50 backdrop-blur-md flex items-center justify-between px-6 z-20">
+      <header className="h-16 flex-none bg-background/50 backdrop-blur-md flex items-center justify-between px-6 z-20">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 text-foreground">
             <Brain size={20} className="text-foreground" />
