@@ -49,8 +49,8 @@ export default function EmptyState({ onPromptClick }) {
                     <Card
                         key={idx}
                         onClick={() => onPromptClick && onPromptClick(p.query)}
-                        /* Updated to V2.7: smaller padding (p-3), kept V2.6 Black Border logic */
-                        className="p-3 bg-card/40 hover:bg-secondary/40 border border-black/10 transition-all cursor-pointer group hover:border-black hover:ring-1 hover:ring-black hover:shadow-lg hover:-translate-y-0.5"
+                        /* Updated to V3.3: Added Custom Dark Mode Styling per request */
+                        className="p-3 bg-card/40 hover:bg-secondary/40 transition-all cursor-pointer group hover:-translate-y-0.5 hover:shadow-lg border border-black/10 dark:border-white/10 hover:border-black hover:ring-1 hover:ring-black dark:hover:border-white dark:hover:ring-white dark:hover:shadow-white/5"
                     >
                         <div className="flex items-start gap-3">
                             <div className="p-1.5 bg-secondary/50 rounded-md group-hover:bg-background transition-colors">

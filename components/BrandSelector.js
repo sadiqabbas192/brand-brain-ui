@@ -48,7 +48,8 @@ export default function BrandSelector({ selectedBrand, onSelect, className }) {
                 value={selectedBrand?.id || ''}
                 disabled={loading}
             >
-                <SelectTrigger className="w-auto min-w-[180px] bg-secondary/50 border-black/10 focus:ring-0 focus:ring-offset-0 text-foreground font-medium h-9 rounded-xl transition-all hover:bg-secondary/40 text-xs px-3 shadow-sm hover:border-black hover:ring-1 hover:ring-black hover:shadow-lg hover:-translate-y-0.5">
+                {/* Updated to V3.3: Dark Mode Custom Styling (White Border/Hover) */}
+                <SelectTrigger className="w-auto min-w-[180px] bg-secondary/50 border-black/10 focus:ring-0 focus:ring-offset-0 text-foreground font-medium h-9 rounded-xl transition-all hover:bg-secondary/40 text-xs px-3 shadow-sm hover:border-black hover:ring-1 hover:ring-black dark:border-white/10 dark:hover:border-white dark:hover:ring-white hover:shadow-lg hover:-translate-y-0.5">
                     <div className="flex items-center gap-2">
                         {!selectedBrand?.id && <Box size={14} className="text-muted-foreground" />}
                         <SelectValue placeholder="Select Brand..." />

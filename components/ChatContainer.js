@@ -152,8 +152,8 @@ export default function ChatContainer({ selectedBrand, onBrandSelect }) {
                                 className={cn(
                                     "w-full pl-6 pr-14 py-4 rounded-[26px] transition-all",
                                     "bg-secondary/40 hover:bg-secondary/60 focus:bg-secondary/40",
-                                    "border border-black/10 focus:border-black focus:ring-1 focus:ring-black", // User requested Black Border
-                                    "text-foreground placeholder:text-muted-foreground/50",
+                                    "border border-black/10 focus:border-black focus:ring-1 focus:ring-black dark:border-white/10 dark:focus:border-white dark:focus:ring-white",
+                                    "text-foreground placeholder:text-gray-foreground/40",
                                     "focus:outline-none shadow-sm",
                                     !selectedBrand && "opacity-50 cursor-not-allowed"
                                 )}
@@ -167,8 +167,8 @@ export default function ChatContainer({ selectedBrand, onBrandSelect }) {
                                 className={cn(
                                     "absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full transition-all duration-200",
                                     hasInput
-                                        ? "bg-black text-white hover:bg-black/90 shadow-md"
-                                        : "bg-gray-300 text-gray-700 hover:bg-gray-400"
+                                        ? "bg-black text-white hover:bg-black/90 shadow-md dark:bg-white dark:text-black dark:hover:bg-white/90"
+                                        : "bg-gray-300 text-gray-700 hover:bg-gray-400 dark:bg-zinc-800 dark:text-zinc-500 dark:hover:bg-zinc-700"
                                 )}
                             >
                                 <ArrowUp size={20} strokeWidth={2.5} />

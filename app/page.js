@@ -4,6 +4,8 @@ import { useState } from 'react';
 import ChatContainer from '@/components/ChatContainer';
 import { Brain } from 'lucide-react';
 
+import { ModeToggle } from '@/components/mode-toggle';
+
 export default function Home() {
   const [selectedBrand, setSelectedBrand] = useState(null);
 
@@ -20,6 +22,7 @@ export default function Home() {
             Dev v2.1
           </span>
         </div>
+        <ModeToggle />
       </header>
 
       {/* Main Content */}
