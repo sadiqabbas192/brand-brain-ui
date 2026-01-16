@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Brand Brain DEV UI (v1)
 
-## Getting Started
+A minimal, calm, and trust-centric chat interface for Brand Brain, built with Next.js.
+Designed for internal development testing.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Brand-First Selection**: Mandatory brand context before chatting.
+- **Calm UX**: Subtle animations, no clutter, "thinking" indicators.
+- **Trust Context**: Displays determination confidence and intent for every response.
+- **Robust Error Handling**: Graceful fallback for API issues.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 14+ (App Router)
+- **Styling**: Tailwind CSS (Custom "Calm" Palette)
+- **Icons**: Lucide React
+- **Integration**: FastAPI Adapter (`/brands`, `/ask`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup & Run
 
-## Learn More
+1. **Install Dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Environment Configuration**
+    Create a `.env.local` file (optional, defaults to localhost:8000):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```env
+    NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+    ```
 
-## Deploy on Vercel
+3. **Run Development Server**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npm run dev -- -p 3001
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Access the app at [http://localhost:3001](http://localhost:3001).
+
+## Implementation Details
+
+- **Custom Chat Container**: Implements `assistant-ui` inspired patterns for maximum control over the "Calm" aesthetic and strict message rendering rules.
+- **State Management**: Local React state for simplicity in v1.
+- **API**: Hardcoded `x-api-key: digitalf5` for current dev environment.
+
+## Known Limitations (v1)
+
+- Chat history is local-only (refresh clears it).
+- Markdown support is minimal (whitespace-pre-wrap).
+- Dark mode is not yet implemented.
