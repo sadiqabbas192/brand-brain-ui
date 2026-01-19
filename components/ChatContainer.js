@@ -131,51 +131,61 @@ export default function ChatContainer({ selectedBrand, onBrandSelect }) {
                 </div>
             </ScrollArea>
 
-            {/* Fixed Input Area (Not Absolute anymore, to prevent overlap) */}
-            <div className="w-full px-4 pb-6 pt-2 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-                <div className="max-w-3xl mx-auto relative flex flex-col items-start gap-2">
+            {/* Fixed Input Area */}
+            <div className="w-full px-4 pb-6 pt-2 z-10 bg-background">
+                <div className="max-w-3xl mx-auto relative">
 
-                    {/* Brand Selector */}
-                    <div className="pl-1">
-                        <BrandSelector selectedBrand={selectedBrand} onSelect={onBrandSelect} />
-                    </div>
+                    <form onSubmit={onFormSubmit} className="relative flex flex-col w-full p-4 rounded-3xl bg-background transition-all duration-200 border border-black/10 focus-within:border-black focus-within:ring-1 focus-within:ring-black dark:border-white/10 dark:focus-within:border-white dark:focus-within:ring-white dark:shadow-white/5">
 
-                    <div className="relative w-full group">
-                        <form onSubmit={onFormSubmit} className="relative">
+                        {/* 1. Text Input Area */}
+                        <div className="flex-1">
                             <input
                                 ref={inputRef}
                                 disabled={!selectedBrand || isLoading}
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={handleKeyDown}
-                                placeholder={selectedBrand ? `Ask ${selectedBrand.name}...` : "Select a brand above to start..."}
+                                placeholder={`Ask about ${selectedBrand?.name}`}
                                 className={cn(
-                                    "w-full pl-6 pr-14 py-4 rounded-[26px] transition-all",
-                                    "bg-secondary/40 hover:bg-secondary/60 focus:bg-secondary/40",
-                                    "border border-black/10 focus:border-black focus:ring-1 focus:ring-black dark:border-white/10 dark:focus:border-white dark:focus:ring-white",
-                                    "text-foreground placeholder:text-gray-foreground/40",
-                                    "focus:outline-none shadow-sm",
+                                    "w-full bg-transparent border-none p-0 focus:ring-0 focus:outline-none placeholder:text-gray-foreground/50 resize-none min-h-[40px] max-h-[200px] overflow-y-auto",
                                     !selectedBrand && "opacity-50 cursor-not-allowed"
                                 )}
+                                autoComplete="off"
                             />
+                        </div>
 
-                            {/* Submit Button */}
-                            <Button
-                                type="submit"
-                                size="icon"
-                                disabled={!hasInput || isLoading || !selectedBrand}
-                                className={cn(
-                                    "absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full transition-all duration-200",
-                                    hasInput
-                                        ? "bg-black text-white hover:bg-black/90 shadow-md dark:bg-white dark:text-black dark:hover:bg-white/90"
-                                        : "bg-gray-300 text-gray-700 hover:bg-gray-400 dark:bg-zinc-800 dark:text-zinc-500 dark:hover:bg-zinc-700"
-                                )}
-                            >
-                                <ArrowUp size={20} strokeWidth={2.5} />
-                                <span className="sr-only">Send</span>
-                            </Button>
-                        </form>
-                    </div>
+                        {/* 2. Bottom Row: Brand Selector (Left) & Actions (Right) */}
+                        <div className="flex items-center justify-between mt-3 pt-2">
+                            {/* Left: Brand Selector */}
+                            <div className="flex items-center">
+                                <BrandSelector
+                                    selectedBrand={selectedBrand}
+                                    onSelect={onBrandSelect}
+                                    className="border-0 shadow-none p-0 h-auto"
+                                    triggerClassName="bg-secondary/40 hover:bg-secondary/60 border-0 h-8 text-xs rounded-lg px-2"
+                                />
+                            </div>
+
+                            {/* Right: Send Button */}
+                            <div className="flex items-center gap-2">
+                                <Button
+                                    type="submit"
+                                    size="icon"
+                                    disabled={!hasInput || isLoading || !selectedBrand}
+                                    className={cn(
+                                        "h-8 w-8 rounded-full transition-all duration-200",
+                                        hasInput
+                                            ? "bg-black text-white hover:bg-black/90 shadow-sm dark:bg-white dark:text-black dark:hover:bg-white/90"
+                                            : "bg-muted text-muted-foreground"
+                                    )}
+                                >
+                                    <ArrowUp size={16} strokeWidth={2.5} />
+                                    <span className="sr-only">Send</span>
+                                </Button>
+                            </div>
+                        </div>
+
+                    </form>
 
                     <div className="w-full text-center mt-2">
                         <span className="text-[10px] text-muted-foreground/40 font-medium tracking-wide">Brand Brain can make mistakes. Check important info.</span>
