@@ -100,7 +100,10 @@ export default function ChatContainer({ selectedBrand, onBrandSelect }) {
                 <div className="px-4 py-6">
                     <div className="max-w-3xl mx-auto space-y-8 pb-4">
                         {messages.length === 0 ? (
-                            <EmptyState onPromptClick={(text) => handleSend(text)} />
+                            <EmptyState
+                                onPromptClick={(text) => handleSend(text)}
+                                selectedBrand={selectedBrand}
+                            />
                         ) : (
                             messages.map((msg, idx) => (
                                 <MessageBubble

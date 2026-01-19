@@ -2,31 +2,33 @@ import { MessageCircle, Search, Palette, Megaphone } from 'lucide-react';
 import { Card } from "@/components/ui/card";
 import { Brain } from 'lucide-react';
 
-export default function EmptyState({ onPromptClick }) {
+export default function EmptyState({ onPromptClick, selectedBrand }) {
+    const brandName = selectedBrand?.name || "the brand";
+
     const prompts = [
         {
             icon: <Palette className="w-5 h-5 text-indigo-400" />,
             title: "Brand Assets",
             desc: "Find colors, logos, or fonts.",
-            query: "What are the primary brand colors?"
+            query: `What are the official brand colors and visual guidelines for ${brandName}, and where should they be used?`
         },
         {
             icon: <Megaphone className="w-5 h-5 text-pink-400" />,
             title: "Marketing Copy",
             desc: "Write taglines or social posts.",
-            query: "Write a catchy tagline for a summer campaign."
+            query: `What tone and messaging style should ${brandName} use for social media posts, based on its brand guidelines?`
         },
         {
             icon: <Search className="w-5 h-5 text-emerald-400" />,
             title: "Strategy",
             desc: "Understand retrieval & guidelines.",
-            query: "What is the brand voice overview?"
+            query: `What is ${brandName}’s core brand positioning and strategic focus, according to its approved documents?`
         },
         {
             icon: <MessageCircle className="w-5 h-5 text-sky-400" />,
             title: "General Q&A",
             desc: "Ask anything about the brand.",
-            query: "Who is the target audience?"
+            query: `What does ${brandName} stand for as a brand, and what principles guide its decisions?`
         }
     ];
 
