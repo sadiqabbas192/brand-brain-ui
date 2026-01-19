@@ -135,7 +135,7 @@ export default function ChatContainer({ selectedBrand, onBrandSelect }) {
             </ScrollArea>
 
             {/* Fixed Input Area */}
-            <div className="w-full px-4 pb-6 pt-2 z-10 bg-background">
+            <div className="w-full px-4 pb-2 pt-2 z-10 bg-background">
                 <div className="max-w-3xl mx-auto relative">
 
                     <form onSubmit={onFormSubmit} className="relative flex flex-col w-full p-4 rounded-3xl bg-background transition-all duration-200 border border-black/10 focus-within:border-black focus-within:ring-1 focus-within:ring-black dark:border-white/10 dark:focus-within:border-white dark:focus-within:ring-white dark:shadow-white/5">

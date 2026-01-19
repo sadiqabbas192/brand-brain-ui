@@ -14,10 +14,13 @@ export default function Home() {
       {/* Header */}
       <header className="h-16 flex-none bg-background/50 backdrop-blur-md flex items-center justify-between px-6 z-20">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 text-foreground">
+          <a
+            href="/"
+            className="flex items-center gap-2 text-foreground p-2 -ml-2 rounded-xl transition-all hover:bg-gray-200 dark:hover:bg-white/10"
+          >
             <Brain size={20} className="text-foreground" />
             <h1 className="font-semibold tracking-tight">Brand Brain</h1>
-          </div>
+          </a>
           <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground text-[10px] font-medium uppercase tracking-wider border border-border/50">
             Dev v2.1
           </span>
